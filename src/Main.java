@@ -1,5 +1,6 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.security.spec.RSAOtherPrimeInfo;
 import java.util.Scanner;
 
 public class Main {
@@ -20,9 +21,11 @@ public class Main {
         //si la nota  esta entre 2.1 y 2.9 tiene derecho a un plan de mejoramiento
         //si la nota es igual o superior a 3, asi que le queda la materia
         //si el estudiante hace plan de mejoramiento, la nota maxima de la matera sera 3
-        //
+        //el sistema debew describir la informacion general
+
         Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese nombre delm estudiante");
+        double notaExamnenParcial = 0, notaTaller = 0, notaFinal = 0, notaMateria = 0;
+        System.out.println("Ingrese nombre del estudiante");
         String nombreEstudiante = sc.nextLine();
         System.out.println("Ingrese documento del estudiante");
         String documentoEstudiante = sc.nextLine();
@@ -36,16 +39,52 @@ public class Main {
                 switch (materia) {
                     case "1":
                         System.out.println("nota de logica de programacion");
+                        System.out.print("Nota examen parcial:");
+                        notaExamnenParcial = sc.nextDouble();
+                        System.out.print("Nota taller:");
+                        notaTaller = sc.nextDouble();
+                        System.out.print("Nota final");
+                        notaFinal = sc.nextDouble();
+                        notaMateria = (notaExamnenParcial * 0.2) + (notaTaller *0.3) + (notaFinal *0.5);
+                        System.out.println("El estudiante" + nombreEstudiante + "tiene la siguiente nota en la materia de logica:" + notaMateria);
+
+                        if (notaMateria < 2 ){
+                            System.out.println("Perdio definitivamente");
+                        } else if (notaMateria < 2.9) {
+                            System.out.println("Tiene derecho al plan de mejoramiento");
+                        } else {
+                            System.out.println("Asi le quedo la materia");
+                        }
+
                         break;
+
                     case "2":
+                        System.out.println("Nota de metodolias agiles:");
+                        System.out.print("Nota examen parcial:");
+                        notaExamnenParcial = sc.nextDouble();
+                        System.out.print("Nota taller:");
+                        notaTaller = sc.nextDouble();
+                        System.out.print("Nota final");
+                        notaFinal = sc.nextDouble();
+                        notaMateria = (notaExamnenParcial * 0.2) + (notaTaller *0.3) + (notaFinal *0.5);
+                        System.out.println("la nota final de la materia es:");
+                        System.out.println("El estudiante" + nombreEstudiante + "tiene la siguiente nota en la materia de logica:" + notaMateria);
                         System.out.println("nota de metodologias");
+
+                        if (notaMateria < 2 ){
+                            System.out.println("Perdio definitivamente");
+                        } else if (notaMateria < 2.9) {
+                            System.out.println("Tiene derecho al plan de mejoramiento");
+                        } else {
+                            System.out.println("Asi le quedo la materia");
+                        }
                         break;
+
                     case "3":
                         System.out.println("nota de introduccion a la programacion");
                         break;
 
                 }
-
 
                 break;
             case "2":
